@@ -1,0 +1,13 @@
+from datetime import date
+from decimal import Decimal
+from typing import Protocol
+from .models import RateQuote,CurrencyInfo
+class ExchangeRateProvider(Protocol):
+    name: str
+    async def latest_rates(self,base:str,quotes:list[str]|None=None)->list[RateQuote]: ...
+    async def rate(self,base:str,quote:str)->RateQuote: ...
+    async def historical_rates(self,base:str,quote:str,start:date,end:date)->list[RateQuote]: ...
+    async def currencies(self)->list[CurrencyInfo]: ...
+def invert_rate(rate:Decimal)->Decimal:
+    if rate==0: raise ZeroDivisionError('Cannot invert a zero exchange rate.')
+    return Decimal(1)/rate

@@ -1,0 +1,15 @@
+[Unit]
+Description=OpenRateBot Discord exchange-rate bot
+After=network-online.target
+Wants=network-online.target
+[Service]
+Type=simple
+User=openratebot
+Group=openratebot
+WorkingDirectory=/opt/openratebot
+EnvironmentFile=/opt/openratebot/.env
+ExecStart=/opt/openratebot/.venv/bin/python -m openratebot.main
+Restart=on-failure
+RestartSec=10
+[Install]
+WantedBy=multi-user.target

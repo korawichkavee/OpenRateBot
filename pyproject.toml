@@ -1,0 +1,17 @@
+[project]
+name = "openratebot"
+version = "0.1.0"
+description = "Open-source, self-hostable Discord exchange-rate bot"
+requires-python = ">=3.12"
+license = {file = "LICENSE"}
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
