@@ -26,7 +26,7 @@ Default provider: [Frankfurter](https://frankfurter.dev/). Frankfurter's v2 API 
 
 ```bash
 git clone https://github.com/korawichkavee/OpenRateBot.git
-cd openratebot
+cd OpenRateBot
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
